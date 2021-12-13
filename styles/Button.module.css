@@ -7,10 +7,26 @@
     background-color: white;
     border: none;
     transition: all 0.5s;
+    border-radius: 20px;
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+    animation-delay: 0.75s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    color: black;
 }
 
 .button:hover {
     cursor: pointer;
     background-color: rgb(210, 210, 210);
     transform: scale(101%);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

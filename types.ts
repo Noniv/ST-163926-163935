@@ -1,10 +1,15 @@
 import type * as cheerio from "cheerio";
 
+export interface Count {
+  count: number;
+  value: string;
+}
+
 export interface WebScrapeData {
-  html?: string;
   image?: string;
-  length: number;
+  letterCount?: Count[];
   title?: string;
+  wordCount?: Count[];
   words?: string[];
 }
 

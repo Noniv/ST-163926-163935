@@ -1,5 +1,9 @@
 .header {
     text-align: center;
+    color: rgb(235, 235, 235);
+    position: relative;
+    animation-name: slideDown;
+    animation-duration: 0.75s;
 }
 
 .h1 {
@@ -10,4 +14,24 @@
 .p {
     font-size: 20px;
     margin-bottom: 40px;
+}
+
+@media screen and (max-width: 719px) {
+    .h1 {
+        font-size: 40px;
+    }
+    
+    .p {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        top: -200px;
+    }
+    100% {
+        top: 0;
+    }
 }

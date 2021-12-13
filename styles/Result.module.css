@@ -1,0 +1,16 @@
+.div {
+    height: 128rem;
+  }
+
+.h2 {
+text-align: center;
+color: rgb(235, 235, 235);
+word-break: break-word;
+}
+
+.image {
+  background-position: 50%;
+  background-size: cover;
+  height: 16rem;
+  width: 100%;
+}

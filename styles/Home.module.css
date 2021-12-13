@@ -1,7 +1,14 @@
 .container {
   max-width: 1300px;
   margin: auto;
-  padding: 30px 50px 150px 50px;
+  padding: 30px 50px 200px 50px;
   position: relative;
   min-height: 100vh;
+}
+
+@media screen and (max-width: 719px) {
+  .container
+  {
+    padding: 30px 5% 300px 5%;
+  }
 }
