@@ -17,7 +17,7 @@ const useWebScrape = (url: string): UseFetchResult => {
     if (url) {
       (async () => {
         try {
-          const response = await fetch("http://localhost:3000/api/scrape", {
+          const response = await fetch(process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? "https://st-163926-163935.vercel.app/api/scrape" : "http://localhost:3000/api/scrape", {
             body: JSON.stringify({
               url,
             }),
