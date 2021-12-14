@@ -23,6 +23,12 @@ const Home: NextPage = () => {
     setUrl(input);
   };
 
+  useEffect(() => {
+    if (data?.image) {
+      document.body.style.backgroundImage = `url(${data.image})`;
+    }
+  }, [data]);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -32,8 +38,8 @@ const Home: NextPage = () => {
       <Input onChange={(event) => setInput(event.target.value)} value={input} />
       <Options onChange={(event) => setOption(parseInt(event.target.value))} value={option} />
       <Button onClick={handleClick} />
-      {data?.letterCount && option === 0 && <Result count={data.letterCount} image={data.image} title="Ilość wystąpień liter" url={url} />}
-      {data?.wordCount && option === 1 && <Result count={data.wordCount} image={data.image} title="Ilość wystąpień słów" url={url} />}
+      {data?.letterCount && option === 0 && <Result count={data.letterCount} image={data.image} title="Ilość wystąpień liter" palette={data.palette} url={url} />}
+      {data?.wordCount && option === 1 && <Result count={data.wordCount} image={data.image} title="Ilość wystąpień słów" palette={data.palette} url={url} />}
       <Footer />
     </div>
   );

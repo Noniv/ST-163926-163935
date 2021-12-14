@@ -1,6 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import * as cheerio from "cheerio";
+import Vibrant from 'node-vibrant'
+import type { Palette } from "@vibrant/color";
 
 import type {Count, WebScrapeData, WebScrapeResponse} from "../../types";
 
@@ -16,6 +18,16 @@ const handler = async (request: NextApiRequest, response: NextApiResponse<WebScr
       }
 
       const $ = cheerio.load(html);
+
+      const image = $("meta[property=og:image]", "head").attr("content");
+      let palette: Palette | undefined;
+
+      try {
+        palette = image ? await Vibrant.from(image).getPalette() : undefined;
+      } catch (error) {
+        palette = undefined;
+      }
+
       const text: string[] = [];
       const words: string[] = [];
 
@@ -69,8 +81,9 @@ const handler = async (request: NextApiRequest, response: NextApiResponse<WebScr
       });
 
       const data: WebScrapeData = {
-        image: $("meta[property=og:image]", "head").attr("content"),
+        image,
         letterCount: letterCount.sort((a, b) => a.count > b.count ? -1 : 1),
+        palette,
         title: $("title", "head").text(),
         wordCount: wordCount.sort((a, b) => a.count > b.count ? -1 : 1),
         words,
