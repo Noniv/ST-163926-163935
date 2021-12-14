@@ -22,10 +22,7 @@ const Result = ({ count, image, palette, title, url }: ChartProps) => {
     responsive: true,
     plugins: {
       legend: {
-        position: "top" as const,
-        labels: {
-          color: "rgb(235, 235, 235)",
-        },
+        display: false,
       },
       title: {
         display: true,
@@ -40,11 +37,17 @@ const Result = ({ count, image, palette, title, url }: ChartProps) => {
       x: {
         ticks: {
           color: "rgb(235, 235, 235)",
+          font: {
+            size: 14,
+          },
         },
       },
       y: {
         ticks: {
           color: "rgb(235, 235, 235)",
+          font: {
+            size: 14,
+          },
         },
       },
     },
@@ -68,7 +71,6 @@ const Result = ({ count, image, palette, title, url }: ChartProps) => {
         barPercentage: 1.0,
         categoryPercentage: 1.0,
         data: count.map((element) => element.count).slice(0, 100),
-        label: "Ilość wystąpień",
       },
     ],
     labels,

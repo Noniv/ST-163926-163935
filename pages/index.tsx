@@ -8,7 +8,7 @@ import styles from "../styles/Home.module.css";
 import Options from "../components/Options";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
-import Result from "../components/Result"
+import Result from "../components/Result";
 
 import * as cheerio from "cheerio";
 
@@ -35,8 +35,10 @@ const Home: NextPage = () => {
         <title>ST 163926 163935</title>
       </Head>
       <Header />
-      <Input onChange={(event) => setInput(event.target.value)} value={input} />
-      <Options onChange={(event) => setOption(parseInt(event.target.value))} value={option} />
+      <div className={styles.input}>
+        <Input onChange={(event) => setInput(event.target.value)} value={input} />
+        <Options onChange={(event) => setOption(parseInt(event.target.value))} value={option} />
+      </div>
       <Button onClick={handleClick} />
       {data?.letterCount && option === 0 && <Result count={data.letterCount} image={data.image} title="Ilość wystąpień liter" palette={data.palette} url={url} />}
       {data?.wordCount && option === 1 && <Result count={data.wordCount} image={data.image} title="Ilość wystąpień słów" palette={data.palette} url={url} />}

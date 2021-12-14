@@ -1,15 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import * as cheerio from "cheerio";
-import Vibrant from 'node-vibrant'
+import Vibrant from "node-vibrant";
 import type { Palette } from "@vibrant/color";
 
-import type {Count, WebScrapeData, WebScrapeResponse} from "../../types";
+import type { Count, WebScrapeData, WebScrapeResponse } from "../../types";
 
 const handler = async (request: NextApiRequest, response: NextApiResponse<WebScrapeResponse>) => {
-  if (request.method === 'POST') {
+  if (request.method === "POST") {
     try {
-      const url = request.body.url
+      const url = request.body.url;
       const fetchResponse = await fetch(url);
       const html = await fetchResponse.text();
 
@@ -34,25 +34,27 @@ const handler = async (request: NextApiRequest, response: NextApiResponse<WebScr
       let letterCount: Count[] = [];
       let wordCount: Count[] = [];
 
-      const content = $('body *:not(noscript):not(script):not(style)').contents().toArray()
-        .filter(element => element.type === 'text')
-        .map(element => $(element).text().trim())
-        .filter(text => text !== "")
+      const content = $("body *:not(noscript):not(script):not(style)")
+        .contents()
+        .toArray()
+        .filter((element) => element.type === "text")
+        .map((element) => $(element).text().trim())
+        .filter((text) => text !== "")
         .forEach((line) => {
           line.split(" ").forEach((word) => text.push(word));
         });
-      
+
       text.forEach((word) => {
         const matches = word.match(/[\p{L}’']+/gu);
 
         if (matches) {
-          matches.forEach(match => words.push(match));
+          matches.forEach((match) => words.push(match));
         }
       });
 
       words.forEach((word) => {
         const foundIndex = wordCount.findIndex((element) => element.value === word);
-        
+
         if (foundIndex !== -1) {
           wordCount[foundIndex].count++;
         } else {
@@ -67,7 +69,7 @@ const handler = async (request: NextApiRequest, response: NextApiResponse<WebScr
 
           if (lowercaseLetter.match(/[\p{L}]/gu)) {
             const foundIndex = letterCount.findIndex((element) => element.value === lowercaseLetter);
-    
+
             if (foundIndex !== -1) {
               letterCount[foundIndex].count++;
             } else {
@@ -82,12 +84,12 @@ const handler = async (request: NextApiRequest, response: NextApiResponse<WebScr
 
       const data: WebScrapeData = {
         image,
-        letterCount: letterCount.sort((a, b) => a.count > b.count ? -1 : 1),
+        letterCount: letterCount.sort((a, b) => (a.count > b.count ? -1 : 1)),
         palette,
         title: $("title", "head").text(),
-        wordCount: wordCount.sort((a, b) => a.count > b.count ? -1 : 1),
+        wordCount: wordCount.sort((a, b) => (a.count > b.count ? -1 : 1)),
         words,
-      }
+      };
 
       response.status(200).json({ data, error: null });
     } catch (error) {
@@ -97,6 +99,6 @@ const handler = async (request: NextApiRequest, response: NextApiResponse<WebScr
   } else {
     response.status(405).json({ data: null, error: "Method Not Allowed" });
   }
-}
+};
 
 export default handler;

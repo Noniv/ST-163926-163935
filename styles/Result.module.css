@@ -1,12 +1,12 @@
 .div {
-    height: 128rem;
-    margin-top: 20px;
-  }
+  height: 160rem;
+  margin-top: 20px;
+}
 
 .h2 {
-text-align: center;
-color: rgb(235, 235, 235);
-word-break: break-word;
+  text-align: center;
+  color: rgb(235, 235, 235);
+  word-break: break-word;
 }
 
 .image {

@@ -1,29 +1,29 @@
 .input {
-    padding: 10px;
-    font-size: 20px;
-    animation-duration: 1s;
-    animation-name: widthIncrease;
-    margin: auto;
-    display: block;
-    width: 100%;
-    border-radius: 20px;
-    border: 2px solid transparent;
-    transition: 0.5s border;
-    background: white;
-    color: black;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  animation-duration: 1s;
+  animation-name: widthIncrease;
+  margin: auto;
+  display: block;
+  width: 100%;
+  border: 2px solid transparent;
+  transition: 0.5s border;
+  background: white;
+  color: black;
 }
 
 .input:focus-visible {
-    outline: 0;
-    background-color: rgb(245, 245, 245);
-    border: 2px solid gray;
+  outline: 0;
+  background-color: rgb(245, 245, 245);
+  border: 2px solid gray;
 }
 
 @keyframes widthIncrease {
-    0% {
-        width: 0;
-    }
-    100% {
-      width: 100%;
-    }
+  0% {
+    width: 0;
   }
+  100% {
+    width: 100%;
+  }
+}

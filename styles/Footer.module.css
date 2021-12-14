@@ -1,52 +1,52 @@
 .footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 50px 20px 50px;
-    width: 100%;
-    color: rgb(245, 245, 245);
-    animation-name: changeColor;
-    animation-duration: 1.5s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px 20px 50px;
+  width: 100%;
+  color: rgb(245, 245, 245);
+  animation-name: changeColor;
+  animation-duration: 1.5s;
 }
 
 .footer::before {
-    content: "";
-    width: calc(100% - 100px);
-    height: 2px;
-    background-color: white;
-    position: absolute;
-    top: -20px;
-    animation-name: changeColor;
-    animation-duration: 1.5s;
+  content: "";
+  width: calc(100% - 100px);
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  top: -20px;
+  animation-name: changeColor;
+  animation-duration: 1.5s;
 }
 
 .right {
-    text-align: right;
+  text-align: right;
 }
 
 @media screen and (max-width: 719px) {
-    .footer {
-        flex-direction: column;
-        padding: 0 5% 20px 5%;
-    }
+  .footer {
+    flex-direction: column;
+    padding: 0 5% 20px 5%;
+  }
 
-    .footer::before {
-        width: 90%;
-    }
+  .footer::before {
+    width: 90%;
+  }
 
-    .right {
-        text-align: left;
-        margin-top: 20px;
-    }
+  .right {
+    text-align: left;
+    margin-top: 20px;
+  }
 }
 
 @keyframes changeColor {
-    0% {
-        color: rgb(20, 20, 20);
-    }
-    100% {
-        color: rgb(245, 245, 245);
-    }
+  0% {
+    color: rgb(20, 20, 20);
+  }
+  100% {
+    color: rgb(245, 245, 245);
+  }
 }

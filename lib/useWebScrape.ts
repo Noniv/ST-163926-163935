@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import {WebScrapeData, WebScrapeResponse} from "../types";
+import { WebScrapeData, WebScrapeResponse } from "../types";
 
 export interface UseFetchResult {
   data: WebScrapeData | null;
@@ -19,12 +19,12 @@ const useWebScrape = (url: string): UseFetchResult => {
         try {
           const response = await fetch("http://localhost:3000/api/scrape", {
             body: JSON.stringify({
-              url
+              url,
             }),
             headers: {
               "Content-Type": "application/json",
             },
-            method: "POST"
+            method: "POST",
           });
 
           if (response.ok) {
@@ -51,8 +51,8 @@ const useWebScrape = (url: string): UseFetchResult => {
   return {
     data,
     error,
-    loading
-  }
-}
+    loading,
+  };
+};
 
 export default useWebScrape;

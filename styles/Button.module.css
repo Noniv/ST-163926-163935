@@ -1,32 +1,31 @@
 .button {
-    display: block;
-    width: 100%;
-    font-size: 20px;
-    padding: 10px;
-    margin-top: 25px;
-    background-color: white;
-    border: none;
-    transition: all 0.5s;
-    border-radius: 20px;
-    animation-name: fadeIn;
-    animation-duration: 0.5s;
-    animation-delay: 0.75s;
-    opacity: 0;
-    animation-fill-mode: forwards;
-    color: black;
+  display: block;
+  font-size: 20px;
+  padding: 10px;
+  margin-top: 25px;
+  width: 100%;
+  background-color: white;
+  border: none;
+  transition: all 0.5s;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  animation-delay: 0.75s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  color: black;
 }
 
 .button:hover {
-    cursor: pointer;
-    background-color: rgb(210, 210, 210);
-    transform: scale(101%);
+  cursor: pointer;
+  background-color: rgb(210, 210, 210);
+  transform: scale(101%);
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
