@@ -10,8 +10,6 @@ import Button from "../components/Button";
 import Footer from "../components/Footer";
 import Result from "../components/Result";
 
-import * as cheerio from "cheerio";
-
 const Home: NextPage = () => {
   const [input, setInput] = useState("");
   const [option, setOption] = useState(0);
