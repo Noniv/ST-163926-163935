@@ -33,6 +33,7 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <Head>
         <title>ST 163926 163935</title>
+        <meta name="description" content="Wklej link do dowolnej strony, a my obliczymy liczbę wystąpień każdej litery oraz wykażemy, że prawo potęgowe rządzi światem!" />
       </Head>
       <Header />
       <div className={styles.input}>
